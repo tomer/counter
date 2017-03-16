@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <style>
+#counter { position: absolute; bottom: 0; left: 0; right: 0; 
+	font-size: 100vmin; text-align: center; 
+	color: black; text-shadow: 0 0 3px white;
+}
+    </style>
+    <script>
+function getCounter() {
+	var data = ~~ window.sessionStorage.getItem('count') + 1;
+	return data;
+}
+
+function incrementCounter() {
+	window.sessionStorage.setItem('count', getCounter());
+}
+
+function displayCounter() {
+	var counter = getCounter();
+	var element = document.getElementById('counter');
+	element.textContent = counter;
+	element.style.background = "rgb(" 
+		+ random(255) + "," 
+		+ random(255) + ","
+		+ random(255) + ")";
+
+	document.getElementsByTagName('title')[0].textContent = counter;
+}
+
+function random(num) {
+	return Math.floor(Math.random() * num);
+}
+
+function updateCounter() {
+	incrementCounter();
+	displayCounter();
+}
+
+function resetCounter() {
+	window.sessionStorage.clear();
+	displayCounter();
+}
+
+window.addEventListener('load', function() {
+	updateCounter();
+	document.getElementById('counter').addEventListener('click', resetCounter);
+});
+
+    </script>
+  </head>
+  <body">
+    <div id="counter">∞</div>
+  </body>
+</html>
