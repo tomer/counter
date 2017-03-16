@@ -30,6 +30,7 @@ function displayCounter() {
 		+ random(255) + ")";
 
 	document.getElementsByTagName('title')[0].textContent = counter;
+	location.hash =  counter;
 }
 
 function random(num) {
