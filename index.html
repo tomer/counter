@@ -12,12 +12,12 @@
     </style>
     <script>
 function getCounter() {
-	var data = ~~ window.sessionStorage.getItem('count') + 1;
+	var data = ~~ window.localStorage.getItem('count') + 1;
 	return data;
 }
 
 function incrementCounter() {
-	window.sessionStorage.setItem('count', getCounter());
+	window.localStorage.setItem('count', getCounter());
 }
 
 function displayCounter() {
@@ -42,7 +42,7 @@ function updateCounter() {
 }
 
 function resetCounter() {
-	window.sessionStorage.clear();
+	window.localStorage.clear();
 	displayCounter();
 }
 
